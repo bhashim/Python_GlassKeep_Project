@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Home Page</title>
+    {% load static %}
+</head>
+<style>
+    h2 {
+        color: blue
+    }
+
+    img {
+        width: 300px;
+    }
+</style>
+
+<body>
+    <img src="{% static 'img/GlassKeep_Logo.jpg' %}" />
+    <h1><a href="/dashboard">Home</a> | <a href="/about">About</a> | <a href="/purchase">Purchase</a> | <a
+            href="/orders">Orders</a>
+        <h1>Hello {{request.session.u_fname}}!</h1>
+        <form action='/logout' , method='post'>
+            {% csrf_token %}
+            <input type='submit' , value='Log Out'>
+        </form>
+        <p>Everyday, people lose or damage their glasses, because they can't find a safe place to put them. But now
+            that's
+            not a worry, thanks to GlassKeep, the one and only invention that will hold your glasses securely in place
+            without magnets or clasps. Best of all its made right here in the USA!</p>
+        <h2>GlassKeep is easy to use! Just hook it in place behind a button and hang your eye glasses in place.</h2>
+        <img src="{% static 'img/GlassKeep_Img.png'%}" />
+        <img src="{% static 'img/GlassKeep_Img2.jpg' %}" />
+        <img src="{% static 'img/GlassKeep_Img3.jpg' %}" />
+        <img src="{% static 'img/GlassKeep_Img4.jpg' %}" />
+        <h3><u>Testimonials</u></h3>
+        <p>"I used to forget where I put my glasses but now I won't have to worry about that anymore thanks to
+            GlassKeep.
+
+            It holds my glasses securely and helps save my time because I know where to find them!" - W.H</p>
+        <p>"Anyone who wears glasses will immediately recognize GlassKeep as an essential product to keep their glasses
+            secure." - D.B.</p>
+        <p>Follow us on social media to stay updated with our products!</p>

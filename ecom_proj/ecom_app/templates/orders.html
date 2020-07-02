@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Orders</title>
+    {% load static %}
+</head>
+<style>
+    img {
+        width: 300px;
+    }
+</style>
+
+<body>
+    <img src="{% static 'img/GlassKeep_Logo.jpg' %}" />
+    <h1><a href="/dashboard">Home</a> | <a href="/about">About</a> | <a href="/purchase">Purchase</a> | <a
+            href="/orders">Orders</a>
+        <h1>Hello {{request.session.u_fname}}!</h1>
+        <form action='/logout' , method='post'>
+            {% csrf_token %}
+            <input type='submit' , value='Log Out'>
+        </form>
+        <h1>Your Orders:</h1>
+
+        <table>
+
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Shipping Address</th>
+                <th>Quantity</th>
+                <th>Actions</th>
+            </thead>
+
+            {% for purchase in all_purchases_html %}
+            <tr>
+                <td>{{purchase.name}}</td>
+                <td>{{purchase.email}}</td>
+                <td>{{purchase.shipping_address}}</td>
+                <td>{{purchase.quantity}}</td>
+                <td> <a href="/orders/{{purchase.id}}/delete">Cancel</a> | <a
+                        href="/orders/edit/{{purchase.id}}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+</body>
+
+</html>

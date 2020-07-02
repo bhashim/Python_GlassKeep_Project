@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>About</title>
+    {% load static %}
+</head>
+<style>
+    p {
+        color: blue;
+    }
+
+    img {
+        width: 300px;
+    }
+</style>
+
+<body>
+    <img src="{% static 'img/GlassKeep_Logo.jpg' %}" />
+    <div class="nav">
+        <h1><a href="/dashboard">Home</a> | <a href="/about">About</a> | <a href="/purchase">Purchase</a>| <a
+                href="/orders">Orders</a>
+    </div>
+    <h1>Hello {{request.session.u_fname}}!</h1>
+    <form action='/logout' , method='post'>
+        {% csrf_token %}
+        <input type='submit' , value='Log Out'>
+    </form>
+    <h2><u>How it all started</u></h2>
+    <p>
+
+        It was Christmas 2015 and I was in 10th grade. My dad had just started wearing reading glasses and kept losing
+        them. He would ask for my help in looking for the glasses. It got to the point where I was tired of helping and
+        set out to find a permanent solution to the problem. I realized that he had a button on his shirt so I came up
+        with a simple cardboard model that would allow him to hang his eye glasses from his shirt button. He was very
+        impressed with my creativity and helped me file for a patent. This is how GlassKeep came to life. I spent
+        sometime searching for different names that could work and finally settled on GlassKeep because the name clearly
+        describes the function. <b>GlassKeep - A place to keep your glasses!</b></p>
+
+    <p>Everyone who tries GlassKeep really likes it. I have talked to many people about GlassKeep and shown them how
+        simple it is to use. Best of all I make GlassKeep right here in California with 100% American made materials!
+    </p>
+</body>
+
+</html>

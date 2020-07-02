@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Order</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="header">
+            <h1>Edit Order:</h1>
+            <form action='/logout' , method='post'>
+                {% csrf_token %}
+                <input type='submit' , value='Log Out'>
+            </form>
+        </div>
+        <div id="errors">
+            {% if messages %}
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- {% if messages %}
+        <ul class="messages">
+            {% for key,value in errors.items %}
+            <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+                {{message}}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %} -->
+
+        <form action="/ordersprocess/edit/{{purchase_html.id}}/process" method="POST">
+            {% csrf_token %}
+            <p>Name</p>
+            <input type="text" name="purchase_name" id="purchase" value="{{purchase_html.name}}">
+            <p>Email</p>
+            <input type="text" name="email" id="email" value="{{purchase_html.email}}">
+            <p>Shipping Address</p>
+            <input type="text" name="shipping_address" id="shipping_address" value="{{purchase_html.shipping_address}}">
+            <p>Quantity</p>
+            <input type="number" name="quantity" id="quantity" value="{{purchase_html.quantity}}">
+            <input type="submit" value="Update">
+            <a href="/orders"><input type="button" onclick="location.href='/orders'" value="Cancel"> </a>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

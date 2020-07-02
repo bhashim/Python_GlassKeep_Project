@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Purchase</title>
+    {% load static %}
+</head>
+<style>
+    p {
+        color: blue;
+    }
+
+    img {
+        width: 300px;
+    }
+</style>
+
+<body>
+    <img src="{% static 'img/GlassKeep_Logo.jpg' %}" />
+    <div class="nav">
+        <h1><a href="/dashboard">Home</a> | <a href="/about">About</a> | <a href="/purchase">Purchase</a>| <a
+                href="/orders">Orders</a>
+    </div>
+    <h1>Hello {{request.session.u_fname}}!</h1>
+    <form action='/logout' , method='post'>
+        {% csrf_token %}
+        <input type='submit' , value='Log Out'>
+    </form>
+    <h1>Currently, GlassKeep comes individually packaged with the following information.</h1>
+    <p>
+        GlassKeep is available for $4.99 each. Please send payment to GlassKeep! 11866 Woodhill Ct. Cupertino, CA 95014.
+        Please include your shipping address in the order form below. Thanks!.</p>
+    <form action="/purchase/add" method="POST">
+        {% csrf_token %}
+        <p>Name:</p>
+        <input type="text" name="purchase_name" id="purchase">
+        <p>Email:</p>
+        <input type="text" name="email" id="email">
+        <p>Shipping Address:</p>
+        <input type="text" name="shipping_address" id="shipping_address">
+        <p>Quantity:</p>
+        <input type="number" name="quantity" id="quantity">
+        <input type="submit" , value="Add To Cart">
+    </form>
+    <div id="errors">
+        {% if messages %}
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+        {% endif %}
+    </div>
+</body>
+
+</html>
