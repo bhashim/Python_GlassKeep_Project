@@ -41,8 +41,26 @@
             <input type="text" name="purchase_name" id="purchase" value="{{purchase_html.name}}">
             <p>Email</p>
             <input type="text" name="email" id="email" value="{{purchase_html.email}}">
-            <p>Shipping Address</p>
+            <p>Subject:</p>
+            <input type="text" name="subject" id="subject" value="{{purchase_html.subject}}">
+            <p>Message:</p>
+            <textarea name="purchase_message" rows="4" cols="50">{{purchase_html.message}}</textarea>
+            <p>Shipping Address:</p>
             <input type="text" name="shipping_address" id="shipping_address" value="{{purchase_html.shipping_address}}">
+            <p>City:</p>
+            <input type="text" name="city" id="city" value="{{purchase_html.city}}">
+            <p>State:</p>
+            <input type="text" name="state" id="state" value="{{purchase_html.state}}">
+            <p>Zip Code:</p>
+            <input type="text" name="zip_code" id="zip_code" value="{{purchase_html.zip_code}}">
+            <p>Credit Card Number:</p>
+            <input type="text" name="credit_card_number" id="credit_card_number" value="{{purchase_html.credit_card_number}}">
+            <p>Security Code:</p>
+            <input type="text" name="security_code" id="security_code" value="{{purchase_html.security_code}}"> 
+            <p>Card Type:</p>
+            <input type="text" name="card_type" id="card_type" value="{{purchase_html.card_type}}">
+            <p>Expiration Date:</p>
+            <input type="date" name="expiration_date" id="expiration_date" value="{{purchase_html.expiration_date}}">
             <p>Quantity</p>
             <input type="number" name="quantity" id="quantity" value="{{purchase_html.quantity}}">
             <input type="submit" value="Update">

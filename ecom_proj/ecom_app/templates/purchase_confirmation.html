@@ -23,7 +23,16 @@
             {% csrf_token %}
             <p>Name: {{purchase_html.name}}</p>
             <p>Email: {{purchase_html.email}}</p>
+            <p>Subject:{{purchase_html.subject}}</p>
+            <p>Message:{{purchase_html.message}}</p>
             <p>Shipping Address:{{purchase_html.shipping_address}}</p>
+            <p>City:{{purchase_html.city}}</p>
+            <p>State:{{purchase_html.state}}</p>
+            <p>Zip Code:{{purchase_html.zip_code}}</p>
+            <p>Credit Card Number:{{purchase_html.credit_card_number}}</p>
+            <p>Security Code:{{purchase_html.security_code}}</p>
+            <p>Card Used:{{purchase_html.card_type}}</p>
+            <p>Expiration Date:{{purchase_html.expiration_date}}</p>
             <p>Quantity:{{purchase_html.quantity}}</p>
             <input type="submit" , value="Confirm">
             <a href="/purchase"><input type="button" onclick="location.href='/purchase'" value="Cancel"> </a>

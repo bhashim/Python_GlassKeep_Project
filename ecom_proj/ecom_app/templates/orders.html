@@ -31,7 +31,12 @@
             <thead>
                 <th>Name</th>
                 <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
                 <th>Shipping Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
                 <th>Quantity</th>
                 <th>Actions</th>
             </thead>
@@ -40,7 +45,12 @@
             <tr>
                 <td>{{purchase.name}}</td>
                 <td>{{purchase.email}}</td>
+                <td>{{purchase.subject}}</td>
+                <td>{{purchase.message}}</td>
                 <td>{{purchase.shipping_address}}</td>
+                <td>{{purchase.city}}</td>
+                <td>{{purchase.state}}</td>
+                <td>{{purchase.zip_code}}</td>
                 <td>{{purchase.quantity}}</td>
                 <td> <a href="/orders/{{purchase.id}}/delete">Cancel</a> | <a
                         href="/orders/edit/{{purchase.id}}">Edit</a></td>

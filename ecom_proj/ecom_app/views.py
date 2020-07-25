@@ -125,7 +125,7 @@ def purchase(request):
     else:
         u_id = request.session['u_id']
         new_purchase = Purchase.objects.create(
-            name=request.POST["purchase_name"],  email=request.POST["email"], shipping_address=request.POST["shipping_address"], quantity=request.POST["quantity"], user_id_creator=u_id)
+            name=request.POST["purchase_name"],  email=request.POST["email"], subject=request.POST["subject"], message=request.POST["purchase_message"],  shipping_address=request.POST["shipping_address"], city=request.POST["city"], state=request.POST["state"],zip_code=request.POST["zip_code"],credit_card_number=request.POST["credit_card_number"],security_code=request.POST["security_code"],card_type=request.POST["card_type"], expiration_date=request.POST["expiration_date"], quantity=request.POST["quantity"], user_id_creator=u_id)
         new_purchase_id = new_purchase.id
         return redirect(f"/purchase/{new_purchase_id}")
 
@@ -197,10 +197,15 @@ def process_order(request, purchase_id):
         purchase = Purchase.objects.get(id=purchase_id)
         purchase.name = request.POST["purchase_name"]
         purchase.email = request.POST["email"]
+        purchase.subject = request.POST["subject"]
+        purchase.message = request.POST["purchase_message"]
         purchase.shipping_address = request.POST["shipping_address"]
+        purchase.city = request.POST["city"]
+        purchase.state = request.POST["state"]
+        purchase.zip_code = request.POST["zip_code"]
         purchase.quantity = request.POST["quantity"]
         purchase.save(update_fields=['name',
-                                     'email', 'shipping_address', 'quantity'], force_update=True)
+                                     'email','subject', 'message' ,'shipping_address', 'city', 'state', 'zip_code', 'quantity'], force_update=True)
         return redirect(f"/orders")
 
 
